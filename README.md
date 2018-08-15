@@ -1,2 +1,11 @@
 # SideslipWeb
 全屏侧滑网页
+
+## 实现原理
+1. 拦截UIScreenEdgePanGestureRecognizer实例化方法，返回自定义的SLWebViewScreenEdgePanGestureRecognizer
+2. 在SLWebViewScreenEdgePanGestureRecognizer中实现全屏处理滑动的SLWebViewPanGestureRecognizer
+3. 在SLWebViewPanGestureRecognizer可控制触发区域并具体处理
+4. SLWebViewPanGestureRecognizerDelegateProxy做消息转发处理
+5. 在WKWebView 的方法 setAllowsBackForwardNavigationGestures中将自定义的滑动手势加入，完成整个逻辑
+
+
